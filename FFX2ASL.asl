@@ -1,6 +1,6 @@
 state("FFX-2")
 {
-    float IGT: 0x812194, 0x3B0;         //Load Remover
+    bool loading: 0x928934;             //Load Remover
     int health: 0xA11390, 0x3B4;        //1 Boss fight Health
     int start: 0x9F786C;                //Timer Start and Reset
     int ausw: 0x9641B8;                 //Result Wert
@@ -124,10 +124,6 @@ split{
     }
 }
 isLoading
-{ //stops timer while Loading
-    if(current.IGT == 0){
-        return true;
-    } else {
-        return false;
-    } 
+{
+    return current.loading;
 }
